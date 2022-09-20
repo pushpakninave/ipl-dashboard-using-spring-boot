@@ -1,0 +1,23 @@
+.MatchDetailCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    margin-bottom: 20px;
+    .match-date,.match-venue,.match-result{
+        margin-top: 10px;
+    }
+    .additional-detail{
+        text-align: right;
+        & > p{
+            margin-bottom: 20px;
+        }
+    }
+}
+.won-card{
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 30, 6, 0.87);
+}
+.lost-card{
+    background-color: rgba(255, 30, 6, 0.87);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}

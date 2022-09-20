@@ -1,0 +1,27 @@
+.HomePage{
+    .teams-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+        padding:25px 0px ;
+        .team-div-individual{
+            border: 2px solid white;
+            padding: 25px 15px;
+            font-size: 1.2rem;
+            /* From https://css.glass */
+            /* From https://css.glass */
+            background: rgba(51, 56, 66, 0.84);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            border: 2px solid rgba(255, 30, 6, 0.87);
+            transition: 0.3s background-color;
+        }
+        .team-div-individual:hover{
+            background-color: rgba(101, 103, 108, 0.84);
+        }
+         
+    }
+}
