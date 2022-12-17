@@ -13,3 +13,5 @@ This web-based application contains data set of all the IPL-matches that were co
 ![image](https://user-images.githubusercontent.com/65614791/208179010-82f4a7ab-2269-47fc-9848-95e55042a0a2.png)
 ![image](https://user-images.githubusercontent.com/65614791/208179025-eb682f21-89c3-49b8-a9cc-b732895437a5.png)
 
+DOCUMENTATION:
+<a href="https://drive.google.com/file/d/1gJrNJqNyj3L0jdstmm3LxTCh_DUjXrWf/view?usp=sharing">PROJECT DOCUMENT LINK<a/>
