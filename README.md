@@ -9,7 +9,7 @@
 
 
 ## 🔸*preview:*
->these are some of the sample GUIs I have designed: 
+>these are some of the sample GUIs of the application I have designed: 
 ![image](https://user-images.githubusercontent.com/65614791/208179010-82f4a7ab-2269-47fc-9848-95e55042a0a2.png)
 <hr/>
 
