@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./YearSelector.scss";
+
 export const YearSelector = ({teamName}) => {
     let years = [];
     const startYear = 2008; 
@@ -22,5 +23,4 @@ export const YearSelector = ({teamName}) => {
             }
        </ol>
     )
-
 }

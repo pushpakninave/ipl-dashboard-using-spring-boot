@@ -28,6 +28,9 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
     this.em = em;
   }
 
+  // we need to check if the job of reading, writing and processing is done. If
+  // the job is done success message is shown and we are
+  // asking for the query.
   @Override
   @Transactional
   public void afterJob(JobExecution jobExecution) {
@@ -36,32 +39,34 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
       Map<String, Team> teamData = new HashMap<>();
 
       // allows to specify query using JPQL
-      // returns a list of array of objects as, it don't have any idea about what the query is returning.
+      // returns a list of array of objects as, it don't have any idea about what the
+      // query is returning.
       em.createQuery("select m.team1, count(*) from Match m group by m.team1", Object[].class)
           .getResultList()
           .stream()
           .map(e -> new Team((String) e[0], (Long) e[1]))
           .forEach(team -> teamData.put(team.getTeamName(), team));
 
-       em.createQuery("select m.team2, count(*) from Match m group by m.team2", Object[].class)
-        .getResultList()
-        .stream()
-        .forEach(e -> {
+      em.createQuery("select m.team2, count(*) from Match m group by m.team2", Object[].class)
+          .getResultList()
+          .stream()
+          .forEach(e -> {
             Team team = teamData.get((String) e[0]);
             team.setTotalMatches(team.getTotalMatches() + (long) e[1]);
-        });
+          });
 
-        em.createQuery("select m.matchWinner, count(*) from Match m group by m.matchWinner", Object[].class)
-        .getResultList()
-        .stream()
-        .forEach(e ->{
-          Team team = teamData.get((String)e[0]); 
-          if(team != null)team.setTotalWins((long)e[1]);
-        });
+      em.createQuery("select m.matchWinner, count(*) from Match m group by m.matchWinner", Object[].class)
+          .getResultList()
+          .stream()
+          .forEach(e -> {
+            Team team = teamData.get((String) e[0]);
+            if (team != null)
+              team.setTotalWins((long) e[1]);
+          });
 
-        teamData.values().forEach(team -> em.persist(team));
-        
-        teamData.values().forEach(team -> System.out.println(team));
+      teamData.values().forEach(team -> em.persist(team));
+
+      teamData.values().forEach(team -> System.out.println(team));
     }
   }
 }

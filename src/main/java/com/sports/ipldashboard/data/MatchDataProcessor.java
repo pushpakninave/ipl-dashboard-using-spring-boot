@@ -7,11 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 
 import com.sports.ipldashboard.model.Match;
-
+//CONVERT MATCH-INPUT TO THE MATCH INSTANCE WITH THE DATA WE WANT.
 public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
 
     private static final Logger log = LoggerFactory.getLogger(MatchDataProcessor.class);
 
+    //PROCESS() TAKES INPUT FROM MATCH INPUT THAT IS SOURCED 
     @Override
     public Match process(final MatchInput matchInput) throws Exception {
         Match match = new Match();
@@ -21,6 +22,7 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
         match.setVenue(matchInput.getVenue());
 
 
+        //set first inning team and second inning team according to toss winner and toss decision.  
         String firstInningsTeam, secondInningsTeam;
         if("bat".equals(matchInput.getToss_decision())){
             firstInningsTeam = matchInput.getToss_winner();

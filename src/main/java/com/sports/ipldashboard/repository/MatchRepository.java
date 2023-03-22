@@ -25,7 +25,7 @@ public interface MatchRepository extends CrudRepository<Match, Long>{
     );
 
 
-    //inmplementing a method in an interface can now be done in java using default keyword;
+    //implementing a method in an interface can now be done in java using default keyword;
     default List<Match> findLatestMatchByTeam(String teamName, int count){
         //sorting for recent 4 matches.
         return getByTeam1OrTeam2OrderByDateDesc(teamName, teamName, PageRequest.of(0, 4));

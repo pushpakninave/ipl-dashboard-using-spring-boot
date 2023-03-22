@@ -14,6 +14,9 @@ import com.sports.ipldashboard.model.Team;
 import com.sports.ipldashboard.repository.MatchRepository;
 import com.sports.ipldashboard.repository.TeamRepository;
 
+
+//designing an API.
+//getting data from database using JPA. 
 @RestController
 @CrossOrigin
 public class TeamController {

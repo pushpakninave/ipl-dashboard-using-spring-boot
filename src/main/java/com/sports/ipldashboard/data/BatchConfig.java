@@ -25,6 +25,7 @@ import com.sports.ipldashboard.model.Match;
 @EnableBatchProcessing
 public class BatchConfig {
 
+    //defined array of all field names that are need to be read,process,write. 
     private final String FIELD_NAMES[] = new String[] {
             "id", "city", "date", "player_of_match", "venue", "neutral_venue", "team1", "team2", "toss_winner",
             "toss_decision", "winner", "result", "result_margin", "eliminator", "method", "umpire1", "umpire2"
@@ -35,6 +36,8 @@ public class BatchConfig {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
 
+
+    //looks and reads from the csv file "Match-data.csv".
     @Bean
     public FlatFileItemReader<MatchInput> reader() {
         return new FlatFileItemReaderBuilder<MatchInput>()
@@ -50,11 +53,14 @@ public class BatchConfig {
                 .build();
     }
 
+    //since matchdataProcessor has been seperately defined so it only returns the new match data processor object.
     @Bean
     public MatchDataProcessor processor() {
         return new MatchDataProcessor();
     }
 
+    // finally writing it to a database.
+    // ":propertyName" dynamically assigns value to the property name. 
     @Bean
     public JdbcBatchItemWriter<Match> writer(DataSource dataSource) {
         return new JdbcBatchItemWriterBuilder<Match>()
@@ -66,6 +72,7 @@ public class BatchConfig {
                 .build();
     }
 
+    // defined a batch job 
     @Bean
     public Job importUserJob(JobCompletionNotificationListener listener, Step step1) {
         return jobBuilderFactory.get("importUserJob")
@@ -75,6 +82,8 @@ public class BatchConfig {
                 .end()
                 .build();
     }
+
+    //batchjob contains one step i.e read,process and write to database that is defined below.
     @Bean
     public Step step1(JdbcBatchItemWriter<Match> writer) {
         return stepBuilderFactory.get("step1")

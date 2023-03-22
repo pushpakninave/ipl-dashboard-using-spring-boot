@@ -1,4 +1,17 @@
 .TeamPage{
+    .bluebar-header{
+        font-family: 'Orbitron', sans-serif;
+        border-radius: 15px;
+        height: 100px;
+        color: #fff;
+        background: #1c3da1;
+        position: relative;
+        text-align: center;
+        font-size:4em;
+        font-weight:5000;
+        letter-spacing: 3px;
+    }
+    .below-teampage{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -31,4 +44,4 @@
         font-size: 1.5rem;
     }
 }
-
+}
