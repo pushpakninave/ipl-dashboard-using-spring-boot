@@ -14,6 +14,9 @@
 <hr/>
 
 >![image](https://user-images.githubusercontent.com/65614791/208179025-eb682f21-89c3-49b8-a9cc-b732895437a5.png)
+<hr/>
+
+>![image](https://github.com/pushpakninave/ipl-dashboard-using-spring-boot/assets/65614791/834c01f7-7b39-4c3b-bd9b-d0d01dbc92a2)
 
 DOCUMENTATION:
 <a href="https://drive.google.com/file/d/1gJrNJqNyj3L0jdstmm3LxTCh_DUjXrWf/view?usp=sharing">PROJECT DOCUMENT LINK<a/>
