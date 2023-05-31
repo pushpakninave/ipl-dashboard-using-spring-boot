@@ -1,0 +1,21 @@
+.home {
+    font-family: Orbitron;
+    letter-spacing: 2px;
+    font-size: 1.1em;
+    color:white;
+    border: 5px;
+    margin: 5px 0;
+    // background-color: aqua;
+    width: 100px;
+    height: 50px;
+    background: rgba( 21, 255, 0, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 6px;
+    // border: 5px solid rgba( 21, 255, 0, 0.55 );
+}
+.home:hover{
+    cursor: pointer;
+    color: blue;
+}

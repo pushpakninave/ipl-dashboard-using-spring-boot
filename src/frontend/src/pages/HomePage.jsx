@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "./HomePage.scss";
 import PacmanLoader
     from "react-spinners/PacmanLoader";
+import { NavBar } from "../component/Navbar";
+
+// import { Navbar } from "../component/Navbar";
+
 export const HomePage = () => {
 
     const [teams, setTeams] = useState([]);
@@ -13,7 +17,7 @@ export const HomePage = () => {
             setLoading(true)
             setTimeout(() => {
                 setLoading(false)
-            }, 4000);
+            }, 100);
             const fetchAllMatches = async () => {
                 const response = await fetch(`http://localhost:8080/team`);
                 const data = await response.json();
@@ -34,7 +38,6 @@ export const HomePage = () => {
             :
             <div className="HomePage">
                 <div className="homepage-heading">
-
                     <h1 className="heading-text">IPL-DASHBOARD </h1>
                 </div>
                 <div className="teams-grid">

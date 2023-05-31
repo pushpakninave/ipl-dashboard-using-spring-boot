@@ -4,18 +4,24 @@ import { MatchSmallCard } from "../component/MatchSmallCard";
 import { MatchDetailCard } from "../component/MatchDetailCard";
 import { useParams, Link } from "react-router-dom";
 import { PieChart } from 'react-minimal-pie-chart';
-// import LineChart from 'react-linechart';
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 import './TeamPage.scss';
+import { NavBar } from "../component/Navbar";
 
 
 export const TeamPage = () => {
 
     const [team, setTeam] = useState({ matches: [] });
+    const [loading, setLoading] = useState(false);
     // const teamName  = "Royal Challengers Bangalore";
     const { teamName } = useParams();
     useEffect(
         () => {
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+            }, 1000);
             const fetchMatches = async () => {
                 const response = await fetch(`http://localhost:8080/team/${teamName}`);
                 const data = await response.json();
@@ -28,7 +34,16 @@ export const TeamPage = () => {
 
     if (!team || !team.teamName) return <h1>Team not found</h1>
     return (
+        loading ?
+            <div className="packman">
+                <PacmanLoader
+                    size={80}
+                    color={"rgba(255, 30, 6, 0.87)"}
+                />
+            </div>
+        :
         <div className="TeamPage">
+        <NavBar/>
             <div className="bluebar-header">Versus</div>
             <div className="below-teampage">
             <div className="team-name-section"> 
